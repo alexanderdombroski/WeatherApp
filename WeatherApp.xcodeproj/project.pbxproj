@@ -12,6 +12,7 @@
 		C04CDBB32BFC45B60035D033 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CDBB22BFC45B60035D033 /* Item.swift */; };
 		C04CDBB52BFC45B80035D033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CDBB42BFC45B80035D033 /* Assets.xcassets */; };
 		C04CDBB82BFC45B80035D033 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04CDBB72BFC45B80035D033 /* Preview Assets.xcassets */; };
+		C04CDBBF2BFC46550035D033 /* LocationChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CDBBE2BFC46550035D033 /* LocationChooser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		C04CDBB22BFC45B60035D033 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C04CDBB42BFC45B80035D033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04CDBB72BFC45B80035D033 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C04CDBBE2BFC46550035D033 /* LocationChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationChooser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		C04CDBAD2BFC45B60035D033 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				C04CDBBE2BFC46550035D033 /* LocationChooser.swift */,
 				C04CDBAE2BFC45B60035D033 /* WeatherAppApp.swift */,
 				C04CDBB02BFC45B60035D033 /* ContentView.swift */,
 				C04CDBB22BFC45B60035D033 /* Item.swift */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04CDBBF2BFC46550035D033 /* LocationChooser.swift in Sources */,
 				C04CDBB12BFC45B60035D033 /* ContentView.swift in Sources */,
 				C04CDBB32BFC45B60035D033 /* Item.swift in Sources */,
 				C04CDBAF2BFC45B60035D033 /* WeatherAppApp.swift in Sources */,
