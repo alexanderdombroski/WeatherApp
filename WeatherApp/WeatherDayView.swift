@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// 3 Hour forcast view
+
 struct WeatherDayView: View {
     let dailyForecast: DailyForecast
     
@@ -49,7 +51,6 @@ struct WeatherDayView: View {
         }
     }
 }
-
 
 
 

@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 
+// 5 Day Forcast View
+
 struct WeatherView: View {
     let test = ["Hi", "My", "Name", "Is", "Alex"]
     
@@ -34,10 +36,11 @@ struct WeatherView: View {
                     Picker("Locations", selection: $selectedLocation) {
                         ForEach(locations, id: \.id) { location in
                             Text(location.name).tag(location as Location?)
-                                .foregroundColor(.white)
+                                .foregroundStyle(.white)
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
+                    .pickerStyle(.menu)
+                    .accentColor(.white)
                     .onChange(of: selectedLocation) {
                         queryWeather()
                     }.onAppear {
@@ -97,7 +100,7 @@ struct WeatherView: View {
                     Text("No forecast data available")
                 }
             }
-            .id(refreshID)
+            .id(refreshID) // This makes sure the page reloads every time
         }
         
     }

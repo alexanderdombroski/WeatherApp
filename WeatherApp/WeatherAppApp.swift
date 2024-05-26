@@ -8,10 +8,12 @@
 import SwiftUI
 import SwiftData
 
+// Program starts running here
+
 @main
 struct WeatherAppApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
+        let schema = Schema([ // Persistant data modeling
             Location.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
@@ -25,7 +27,7 @@ struct WeatherAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView() // Load the first screen
         }
         .modelContainer(sharedModelContainer)
     }

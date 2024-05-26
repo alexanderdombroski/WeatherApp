@@ -7,6 +7,8 @@
 
 import Foundation
 
+// All of the classes and Json result dictionary navigation code
+
 final class Forecast: ObservableObject {
     var location: Location
     @Published var city = "idk"

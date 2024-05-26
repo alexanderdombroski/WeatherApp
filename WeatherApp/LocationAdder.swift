@@ -284,11 +284,19 @@ struct LocationAdder: View {
                         .font(.title)
                         .padding()
                         .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
-                    Picker("Choose Country", selection: $chosenCountry) {
-                        ForEach(countryCodes, id: \.self) {
-                            Text($0)
+                    HStack {
+                        Text("Country:")
+                        Spacer()
+                        Picker("Choose Country", selection: $chosenCountry) {
+                            ForEach(countryCodes, id: \.self) {
+                                Text($0)
+                            }
                         }
-                    }.listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
+                        .pickerStyle(.wheel)
+                        .frame(maxWidth: 200, maxHeight: 125)
+                        Spacer()
+                    }
+                    .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
                     TextField("Type Zip/Postal Code", text: $zipCode)
                         .keyboardType(.numberPad)
                         .onSubmit() { queryLocations() }
@@ -317,7 +325,7 @@ struct LocationAdder: View {
         }
     }
     
-    func queryLocations() {
+    func queryLocations() { // Try and find the location related the ZIP through the API
         getData(url: url) { jsonData in
             if let jsonData = jsonData {
                 latitude = jsonData["lat"] as? Double ?? 0.0
@@ -330,7 +338,7 @@ struct LocationAdder: View {
     }
     
     func save() {
-        modelContext.insert(Location(
+        modelContext.insert(Location( // Save a location to persistant data
             name: name,
             country: chosenCountry,
             longitude: longitude,

@@ -11,11 +11,10 @@ import SwiftData
 struct LocationChooser: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Environment(\.modelContext) private var modelContext
-    @Query private var locations: [Location]
+    @Environment(\.modelContext) private var modelContext // Allows modifying persistant data storage
+    @Query private var locations: [Location] // loads persistant data
     
     @State var locationAdderOpen = false
-    
     let bottomColor = UIColor(red: 0, green: 0.7, blue: 1, alpha: 1)
     var body: some View {
         NavigationSplitView {
@@ -31,7 +30,9 @@ struct LocationChooser: View {
                         }
                     } label: {
                         Text(location.name)
+                            .foregroundStyle(.white)
                     }
+                    .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)))
                 }
                 .onDelete(perform: deleteItems)
             }
@@ -39,12 +40,12 @@ struct LocationChooser: View {
                 LinearGradient(colors: [.teal, Color(bottomColor)], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
             )
-        
         } detail: {
             Text("Select an item")
         }
+        .scrollContentBackground(.hidden)
         .navigationBarBackButtonHidden(true)
-            .toolbar {
+            .toolbar { // Top items
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
@@ -64,7 +65,7 @@ struct LocationChooser: View {
                             .foregroundColor(.white)
                     }
                 }
-            }
+            } // Opens a popup view
             .sheet(isPresented: $locationAdderOpen) {
                 LocationAdder()
             }

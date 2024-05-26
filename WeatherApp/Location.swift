@@ -8,6 +8,8 @@
 import SwiftData
 import Foundation
 
+
+// Formats location data to be saved
 @Model
 final class Location: Identifiable, Equatable {
     var id = UUID()

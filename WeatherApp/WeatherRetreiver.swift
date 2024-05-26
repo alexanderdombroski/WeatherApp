@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+    // Function that takes a URL uses completetion to allow the modifying of other varibables to save data from the API JSON dictionary resutlt
 func getData(url: String, completion: @escaping ([String: Any]?) -> Void) {
     if let url = URL(string: url) {
         let job = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -25,7 +26,7 @@ func getData(url: String, completion: @escaping ([String: Any]?) -> Void) {
             
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    completion(json)
+                    completion(json) // This will require a lambda function to save the data
                 }
             } catch let jsonError {
                 print("JSON Error: \(jsonError)")

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// First Screen
+
 let TEXTCOLOR = UIColor(red: 1, green: 1, blue: 0.7, alpha: 1)
 
 struct ContentView: View {
