@@ -274,30 +274,44 @@ struct LocationAdder: View {
         "https://api.openweathermap.org/geo/1.0/zip?zip=\(zipCode),\(chosenCountry)&appid=5498a883757fe616d4bbaead3bce2724"
     }
     
+    let topColor = UIColor(red: 0, green: 0.7, blue: 0.5, alpha: 1)
+    
     var body: some View {
         NavigationStack {
-            Form {
-                Text("Choose New Location")
-                    .font(.title)
-                    .padding()
-                    .background()
-                Picker("Choose Country", selection: $chosenCountry) {
-                    ForEach(countryCodes, id: \.self) {
-                        Text($0)
+            VStack {
+                Form {
+                    Text("Choose New Location")
+                        .font(.title)
+                        .padding()
+                        .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
+                    Picker("Choose Country", selection: $chosenCountry) {
+                        ForEach(countryCodes, id: \.self) {
+                            Text($0)
+                        }
+                    }.listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
+                    TextField("Type Zip/Postal Code", text: $zipCode)
+                        .keyboardType(.numberPad)
+                        .onSubmit() { queryLocations() }
+                        .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
+                    Text("Name: \(name)")
+                        .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
+                    Text("Latitude: \(latitude)")
+                        .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
+                    Text("Longitude: \(longitude)")
+                        .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
+                    HStack {
+                        Spacer()
+                        Button(action: save) {
+                            Text("Save")
+                        }
+                        Spacer()
                     }
+                    .listRowBackground(Color(UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)))
                 }
-                TextField("Type Zip/Postal Code", text: $zipCode)
-                    .keyboardType(.numberPad)
-                    .onSubmit() { queryLocations() }
-                Text("Name: \(name)")
-                Text("Latitude: \(latitude)")
-                Text("Longitude: \(longitude)")
-                HStack {
-                    Spacer()
-                    Button(action: save) {
-                        Text("Save")
-                    }
-                    Spacer()
+                .scrollContentBackground(.hidden) // Neccessary to change the background
+                .background {
+                    LinearGradient(colors: [Color(topColor), .teal], startPoint: .top, endPoint: .bottom)
+                        .ignoresSafeArea()
                 }
             }
         }
@@ -326,3 +340,6 @@ struct LocationAdder: View {
     }
 }
 
+#Preview {
+    LocationAdder()
+}

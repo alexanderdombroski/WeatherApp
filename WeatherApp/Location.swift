@@ -6,9 +6,11 @@
 //
 
 import SwiftData
+import Foundation
 
 @Model
-final class Location {
+final class Location: Identifiable, Equatable {
+    var id = UUID()
     var name: String
     var country: String
     var longitude: Double

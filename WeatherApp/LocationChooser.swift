@@ -16,6 +16,7 @@ struct LocationChooser: View {
     
     @State var locationAdderOpen = false
     
+    let bottomColor = UIColor(red: 0, green: 0.7, blue: 1, alpha: 1)
     var body: some View {
         NavigationSplitView {
             List {
@@ -34,6 +35,11 @@ struct LocationChooser: View {
                 }
                 .onDelete(perform: deleteItems)
             }
+            .background(
+                LinearGradient(colors: [.teal, Color(bottomColor)], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+            )
+        
         } detail: {
             Text("Select an item")
         }
@@ -45,13 +51,17 @@ struct LocationChooser: View {
                     }) {
                         HStack {
                             Image(systemName: "arrow.backward")
+                                .foregroundStyle(.white)
                             Text("Back")
+                                .foregroundStyle(.white)
                         }
+                        
                     }
                 }
                 ToolbarItem {
                     Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
                     }
                 }
             }
