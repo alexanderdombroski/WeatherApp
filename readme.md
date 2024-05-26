@@ -6,8 +6,6 @@ This is a basic weather iOS app that uses Open Weather Map's API to show weather
 
 I created this app to gain more experience with Swift and also learn to use APIs. I learned some good design concepts and got lot's of practice with type casting to navigate the API's data. 
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the app running and a walkthrough of the code.}
-
 [Software Demo Video](https://youtu.be/JGWFcMCeO1I)
 [Code Overview](https://youtu.be/JroDoi-U6Rw)
 
